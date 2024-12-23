@@ -7,107 +7,128 @@ public class Lottery {
 	public static void main(String[] args) {
 
 		System.out.println("阿文...請輸入你討厭哪個數字?");
-		int sc = scan();	//輸入並判定1~9
+		int sc = scan();// 判定輸入的是1~9
+		int[] sum = array(sc);// 計算過濾掉討厭的並存在陣列裡
+		printarray(sum);// 列印陣列六個一行
+		System.out.println("\n============================");
+		random(sc);// 亂數六個而且不重複
+	}
 
-		int[] k = new int[49];
+	// 判定輸入的是1~9
+	static int scan() {
+
+		Scanner s = new Scanner(System.in);
+		int sc = s.nextInt();
+
+		while (sc < 1 || sc > 9) {
+
+			System.out.println("請輸入1~9之間的數字");
+			sc = s.nextInt();
+
+		}
+		s.close();
+		return sc;
+
+	}
+
+	// 計算過濾掉討厭的並存在陣列裡
+	static int[] array(int sc) {
+
+		int x = 49;
+		// 計算數量
 		int sum = 0;
 
-		for (int a = 1; a <= k.length; a++) {
+		for (int a = 1; a <= x; a++) {
 
 			if (a % 10 != sc && a / 10 != sc) {
 
-				k[sum++] = a;
+				sum++;
 
 			}
 
 		}
 
-		for (int a = 0; a < sum;) {
+		// 存在陣列
+		int[] k = new int[sum];
 
-			for (int c = 0; c < 6 && a < sum; c++) {
+		for (int a = 1, b = 0; a <= x; a++) {
 
-				System.out.print(k[a] + "\t");
+			if (a % 10 != sc && a / 10 != sc) {
 
-				a = a + 1;
+				k[b++] = a;
+
 			}
-
-			System.out.println();
 
 		}
 
-		System.out.print("總共有" + sum + "數字可選");
+		return k;
+	}
 
-		System.out.println("\n============================");
-		// (進階挑戰:輸入不要的數字後,直接亂數印出6個號碼且不得重複)
-		int[] j = new int[6];
-		int b = 0;
-		// 產生六個亂數
+	// 列印出過濾過的數字，六個一排
+	static void printarray(int[] sum) {
+
+		for (int a = 0, b = 1; a < sum.length; a++, b++) {
+
+			System.out.print(sum[a] + "\t");
+
+			if (b % 6 == 0) {
+
+				System.out.println();
+
+			}
+
+		}
+
+		System.out.print("\n總共有" + sum.length + "數字可選");
+
+	}
+
+	// 亂數生成六個
+	static void random(int sc) {
+
+		int[] r = new int[6];
+
 		for (int a = 0; a < 6; a++) {
-			
-			j[a] = (int) (Math.random() * 49) + 1;
-			
-			// 內部比對有沒有重複
-			all: 
-			while (true) {
-				
-				if (j[a] % 10 != sc && j[a] / 10 != sc) {
 
-					if (a == 0) {
+			r[a] = (int) (Math.random() * 49) + 1;
 
-						break all;
+			again: while (true) {
 
-					}
+				// 第一關是不是討厭的數
+				if (r[a] % 10 == sc || r[a] / 10 == sc) {
 
-					for (b = 0; b < a;) {
+					r[a] = (int) (Math.random() * 49) + 1;
+					continue;
 
-						if (j[a] == j[b]) {
+					// 如果是第一個數，過了第一關也沒有其他數可以比對
+				} else if (a == 0) {
 
-							j[a] = (int) (Math.random() * 49) + 1;
-							b = 0;
+					break;
 
-						} else {
+				} else {
 
-							b++;
+					// 內部比對程式碼，重複就重新產生然後再來比對一次
+					for (int i = 0; i < a; i++) {
 
-							if (a == b) {
-								
-								break all;
-								
-							}
+						if (r[a] == r[i]) {
+
+							r[a] = (int) (Math.random() * 49) + 1;
+							continue again;
 
 						}
 
 					}
 
-				} else {
-
-					j[a] = (int) (Math.random() * 49) + 1;
+					break;
 
 				}
 
 			}
 
-			System.out.print(j[a] + " ");
+			System.out.print(r[a] + " ");
 
-		}		
+		}
 
 	}
-	
-	//判定輸入的是1~9
-	static int scan() {
-		
-		Scanner s = new Scanner(System.in);
-		int sc = s.nextInt();
-		
-		while (sc < 1 || sc > 9) {
-			
-			System.out.println("請輸入1~9之間的數字");
-			sc = s.nextInt();
-			
-		}
-		s.close();
-		return sc;
-		
-	}	
 
 }
