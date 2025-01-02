@@ -85,7 +85,7 @@ public class Hw5Date {
 
 				while (day > 29 || day < 1) {
 
-					System.out.println("這是" + month + "月份，請輸入1~30整數");
+					System.out.println("這是" + month + "月份，請輸入1~29整數");
 					System.out.print("請輸入日(dd):");
 					day = s.nextInt();
 
@@ -95,7 +95,7 @@ public class Hw5Date {
 
 				while (day > 28 || day < 1) {
 
-					System.out.println("這是" + month + "月份，請輸入1~30整數");
+					System.out.println("這是" + month + "月份，請輸入1~28整數");
 					System.out.print("請輸入日(dd):");
 					day = s.nextInt();
 
