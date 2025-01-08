@@ -34,7 +34,7 @@ abstract class Pen {
 	}
 
 	void setBrand(String brand) {
-
+		
 		this.brand = brand;
 
 	}
@@ -56,10 +56,20 @@ abstract class Pen {
 }
 
 class Pencil extends Pen {
-
+	
+	Pencil(){
+		
+	}
+	
+	Pencil(String brand, int price){
+		
+		super(brand,price);
+		
+	}
+	
 	@Override
 	double getPrice() {
-
+		
 		return (int) (super.getPrice() * 0.8);
 
 	}
@@ -72,7 +82,17 @@ class Pencil extends Pen {
 }
 
 class InkBrush extends Pen {
-
+	
+	InkBrush(){
+		
+	}
+	
+	InkBrush(String brand, int price){
+		
+		super(brand,price);
+		
+	}
+	
 	@Override
 	double getPrice() {
 
@@ -91,9 +111,8 @@ public class Hw1ExtPen {
 
 	public static void main(String[] args) {
 
-		Pen p1 = new Pencil();
-		p1.setBrand("SKB");
-		p1.setPrice(200);
+		Pen p1 = new Pencil("SKB",200);
+
 		Pen p2 = new InkBrush();
 		p2.setBrand("雄獅");
 		p2.setPrice(100);
