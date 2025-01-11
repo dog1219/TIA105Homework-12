@@ -3,7 +3,7 @@ package work6;
 public class Calculator extends CalException {
 
 	private int x, y;
-	int inputcheck;
+	private boolean ycheck;
 
 	Calculator() {
 
@@ -21,7 +21,6 @@ public class Calculator extends CalException {
 	void setX(String x) throws CalException {
 
 		this.x = CalEx(x);
-		inputcheck += 1;
 
 	}
 
@@ -34,7 +33,7 @@ public class Calculator extends CalException {
 	void setY(String y) throws CalException {
 
 		this.y = CalEx(y);
-		inputcheck += 1;
+		ycheck = true;
 
 	}
 
@@ -47,7 +46,7 @@ public class Calculator extends CalException {
 	int CalEx(String value) throws CalException {
 
 		try {
-			if (inputcheck == 2 && getX() == 0 && getY() == 0) {
+			if (ycheck == true && getX() == 0 && getY() == 0) {
 
 				throw new CalException("0的0次方沒有意義!");
 
