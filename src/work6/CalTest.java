@@ -1,6 +1,5 @@
 package work6;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 //請設計三個類別Calculator.java,CalException.java與CalTest.java,在Calculator.java裡有個自訂
