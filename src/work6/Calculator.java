@@ -6,7 +6,7 @@ public class Calculator extends CalException {
 
 	private int x, y;
 	int inputcheck;
-	
+
 	Calculator() {
 
 	}
@@ -21,10 +21,10 @@ public class Calculator extends CalException {
 	}
 
 	void setX(int x) throws CalException {
-		
+
 		this.x = CalEx(x);
 		inputcheck += 1;
-		
+
 	}
 
 	int getX() {
@@ -34,7 +34,7 @@ public class Calculator extends CalException {
 	}
 
 	void setY(int y) throws CalException {
-		
+
 		this.y = CalEx(y);
 		inputcheck += 1;
 
@@ -47,12 +47,8 @@ public class Calculator extends CalException {
 	}
 
 	int CalEx(int value) throws CalException {
-		
-		if (value > 0) {
 
-			return value;
-
-		} else if (inputcheck == 2 && getX() == 0 && getY() == 0) {
+		if (inputcheck == 2 && getX() == 0 && getY() == 0) {
 
 			throw new CalException("0的0次方沒有意義!");
 
@@ -60,10 +56,10 @@ public class Calculator extends CalException {
 
 			throw new CalException("次方為負值，結果回傳不為整數!");
 
-		}else {
-				
+		} else {
+
 			return value;
-				
+
 		}
 
 	}
