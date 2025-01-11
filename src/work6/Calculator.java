@@ -1,7 +1,5 @@
 package work6;
 
-import java.util.InputMismatchException;
-
 public class Calculator extends CalException {
 
 	private int x, y;
@@ -13,14 +11,14 @@ public class Calculator extends CalException {
 
 	int powerXY(int x, int y) throws CalException {
 
-		setX(x);
-		setY(y);
+		setX(String.valueOf(x));
+		setY(String.valueOf(y));
 
-		return (int) Math.pow(getX(), getY());
+		return (int) (Math.pow(getX(), getY()));
 
 	}
 
-	void setX(int x) throws CalException {
+	void setX(String x) throws CalException {
 
 		this.x = CalEx(x);
 		inputcheck += 1;
@@ -33,7 +31,7 @@ public class Calculator extends CalException {
 
 	}
 
-	void setY(int y) throws CalException {
+	void setY(String y) throws CalException {
 
 		this.y = CalEx(y);
 		inputcheck += 1;
@@ -46,19 +44,25 @@ public class Calculator extends CalException {
 
 	}
 
-	int CalEx(int value) throws CalException {
+	int CalEx(String value) throws CalException {
 
-		if (inputcheck == 2 && getX() == 0 && getY() == 0) {
+		try {
+			if (inputcheck == 2 && getX() == 0 && getY() == 0) {
 
-			throw new CalException("0的0次方沒有意義!");
+				throw new CalException("0的0次方沒有意義!");
 
-		} else if (value < 0) {
+			} else if (Integer.parseInt(value) < 0) {
 
-			throw new CalException("次方為負值，結果回傳不為整數!");
+				throw new CalException("次方為負值，結果回傳不為整數!");
 
-		} else {
+			} else {
 
-			return value;
+				return Integer.parseInt(value);
+
+			}
+		} catch (NumberFormatException e) {
+
+			throw new NumberFormatException("輸入格式不正確");
 
 		}
 

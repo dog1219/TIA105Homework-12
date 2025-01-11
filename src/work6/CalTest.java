@@ -17,31 +17,23 @@ public class CalTest extends Calculator {
 		Scanner sc = new Scanner(System.in);
 
 		try {
-			
-			System.out.println("請輸入Z值:");
-			Integer.parseInt(sc.nextLine());
+
 			Calculator xy = new Calculator();
 			System.out.print("請輸入X值:");
-			xy.setX(sc.nextInt());
+			xy.setX(sc.nextLine());
 			System.out.print("請輸入Y值:");
-			xy.setY(sc.nextInt());
+			xy.setY(sc.nextLine());
 			System.out.println(xy.getX() + "的" + xy.getY() + "次元等於" + xy.powerXY(xy.getX(), xy.getY()));
-			
+
 		} catch (CalException e) {
 
 			e.printStackTrace();
 
-		} catch (InputMismatchException e) {
-			
-			e.printStackTrace();
-			throw new InputMismatchException("輸入格式不正確");
+		} catch (NumberFormatException e) {
 
-		} catch(NumberFormatException e){
-			
 			e.printStackTrace();
-			
-		}
-		finally {
+
+		} finally {
 
 			sc.close();
 
