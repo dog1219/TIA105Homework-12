@@ -1,6 +1,5 @@
 package workExt;
 
-
 public class ArrowMan extends Hero {
 	
 	public ArrowMan() {
@@ -8,21 +7,7 @@ public class ArrowMan extends Hero {
 	}
 
 	public ArrowMan(String name, int level, double exp) {
-		super(name, level, exp);
+		super(name, level, exp, new MoveRun(), new AttackArrow(), new DefendShield());
 	}
 
-	@Override
-	public void attack() {
-		System.out.println("放弓箭");
-	}
-
-	@Override
-	public void move() {
-		System.out.println("跑步");
-	}
-
-	@Override
-	public void defend() {
-		System.out.println("做防禦動作");
-	}
 }
