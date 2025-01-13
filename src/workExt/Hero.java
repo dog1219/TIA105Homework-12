@@ -6,9 +6,9 @@ public class Hero {
 	private String name;
 	private int level;
 	private double exp;
-	private Move move;
-	private Attack attack;
-	private Defend defend;
+	private Movetype move;
+	private Attacktype attack;
+	private Defendtype defend;
 	
 	public Hero() {
 		this("David", 1, 0);
@@ -20,7 +20,7 @@ public class Hero {
 		this.exp = exp;
 	}
 	
-	public Hero(String name, int level, double exp, Move move, Attack attack, Defend defend) {
+	public Hero(String name, int level, double exp, Movetype move, Attacktype attack, Defendtype defend) {
 		this.name = name;
 		this.level = level;
 		this.exp = exp;
@@ -42,14 +42,14 @@ public class Hero {
 	};
 }
 
-interface Attack {
+interface Attacktype {
 	 void attack();
 }
 
-interface Defend {
+interface Defendtype {
 	void defend();
 }
 
-interface Move {
+interface Movetype {
 	void move();
 }

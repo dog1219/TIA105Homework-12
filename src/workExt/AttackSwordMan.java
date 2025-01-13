@@ -1,6 +1,6 @@
 package workExt;
 
-public class AttackSwordMan implements Attack {
+public class AttackSwordMan implements Attacktype {
 
 	@Override
 	public void attack() {
