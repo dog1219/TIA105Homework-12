@@ -1,6 +1,12 @@
 package workExt;
 
-public class DefendShield implements Defendtype {
+public interface Defendtype {
+	
+	void defend();
+	
+}
+
+class DefendShield implements Defendtype {
 
 	@Override
 	public void defend() {

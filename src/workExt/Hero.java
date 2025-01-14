@@ -42,14 +42,26 @@ public class Hero {
 	};
 }
 
-interface Attacktype {
-	 void attack();
+class ArrowMan extends Hero {
+	
+	public ArrowMan() {
+		super();
+	}
+
+	public ArrowMan(String name, int level, double exp) {
+		super(name, level, exp, new MoveRun(), new AttackArrow(), new DefendShield());
+	}
+
 }
 
-interface Defendtype {
-	void defend();
-}
-
-interface Movetype {
-	void move();
+class SwordMan extends Hero {
+	
+	public SwordMan() {
+		super();
+	}
+	
+	public SwordMan(String name, int level, double exp) {
+		super(name, level, exp, new MoveRun(), new AttackSwordMan(), new DefendShield());
+	}
+	
 }

@@ -1,6 +1,12 @@
 package workExt;
 
-public class MoveRun implements Movetype {
+public interface Movetype {
+	
+	void move();
+	
+}
+
+class MoveRun implements Movetype {
 
 	@Override
 	public void move() {
