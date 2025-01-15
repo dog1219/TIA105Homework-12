@@ -1,7 +1,5 @@
 package work6;
 
-import java.util.Scanner;
-
 public class Calculator extends CalException {
 
 	private int x, y;

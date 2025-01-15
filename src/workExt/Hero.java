@@ -1,5 +1,6 @@
 package workExt;
 
+@SuppressWarnings("unused")
 public class Hero {
 	// 省略 getter/setter...
 	

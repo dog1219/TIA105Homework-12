@@ -5,4 +5,14 @@ package work7;
 
 public class Hw2TenRandom {
 
+	public static void main(String[] args) {
+		
+		for (int i = 1; i <= 10; i++) {
+
+//			(int) (Math.random() * 1000) + 1;
+
+		}
+		
+	}
+
 }

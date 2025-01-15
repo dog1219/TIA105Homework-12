@@ -8,9 +8,10 @@ import java.util.Scanner;
 
 public class Hw5Date {
 
+	static Scanner s = new Scanner(System.in);
+	
 	public static void main(String[] args) {
 
-		Scanner s = new Scanner(System.in);
 		System.out.print("請輸入西元年(yyyy):");
 		int year = s.nextInt();
 		int leepyear = leapyearcheck(year);
@@ -18,7 +19,6 @@ public class Hw5Date {
 		int month = monthcheck(s.nextInt());
 		System.out.print("請輸入日(dd):");
 		int day = daycheck(leepyear, month, s.nextInt());
-		s.close();
 		int longday = daySum(leepyear, month, day);
 		System.out.print("輸入的日期為該年第" + longday + "天");
 	}
@@ -42,8 +42,6 @@ public class Hw5Date {
 	// 確認輸入的月份在1~12之間
 	public static int monthcheck(int month) {
 
-		Scanner s = new Scanner(System.in);
-
 		while (month > 12 || month < 1) {
 			System.out.println("這是月份，請輸入1~12整數");
 			System.out.print("請輸入月(mm):");
@@ -56,8 +54,6 @@ public class Hw5Date {
 
 	// 確認輸入的日期在該月範圍內
 	public static int daycheck(int leapyear, int month, int day) {
-
-		Scanner s = new Scanner(System.in);
 
 		if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
 
