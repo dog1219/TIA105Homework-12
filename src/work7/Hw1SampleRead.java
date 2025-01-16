@@ -8,26 +8,35 @@ import java.io.*;
 public class Hw1SampleRead {
 
 	public static void main(String[] args) {
-       
+	
+		try {
+			
+			File sampleFile = new File(".\\src\\work7\\Sample.txt");
+			FileReader sampleReader = new FileReader(sampleFile);
+			
+			// 計算字元數跟行數
+			int i;
+			int samplesum = 0, sampleln = 1;
+			while ((i = sampleReader.read()) != -1) {
 
-        try {
-        	
-            FileReader reader = new FileReader(".\\src\\work7\\Sample.txt");
-            int charsum = 0;
-            while (reader.read() != -1) {
-            	
-            	charsum += 1;
-            	
-            }
+				samplesum += 1;
 
-            System.out.println("Sample.txt檔案共有"+"個位元組," + charsum + "個字元,"  + "列資料");
-        	reader.close();
-        	
-        } catch (IOException e) {
-        	
-            e.printStackTrace();
-            
-        }
+				if ((char)i == '\n') {
+
+					sampleln += 1;
+
+				}
+
+			}
+
+			System.out.print("Sample.txt檔案共有" + sampleFile.length() + "個位元組," + samplesum + "個字元," + sampleln + "列資料");
+			sampleReader.close();
+			
+		} catch (IOException e) {
+
+			e.printStackTrace();
+
+		}
 
 	}
 
