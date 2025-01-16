@@ -11,15 +11,19 @@ public class Hw2TenRandom {
 
 		try {
 
-			PrintWriter pw = new PrintWriter(new FileWriter(".\\src\\work7\\Data.txt"));
+			PrintWriter pw = new PrintWriter(new FileWriter(".\\src\\work7\\Data.txt", true));
 
 			for (int i = 1; i <= 10; i++) {
 
-				pw.print( (int) (Math.random() * 1000) + 1 + ",");
+				pw.print((int) (Math.random() * 1000) + 1 + ",");
 
+				if (i == 10) {
+					pw.println();
+				}
 			}
 
 			pw.close();
+			System.out.print("已生成10個亂數");
 
 		} catch (IOException e) {
 

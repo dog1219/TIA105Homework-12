@@ -9,8 +9,8 @@ public class Hw3CopyFile {
 
 	public static void main(String[] args) {
 
-		String inputFile = ".\\src\\work7\\Hw3CopyFileIn.txt";
-		String outputFile = ".\\src\\work7\\Hw3CopyFileOut.txt";
+		String inputFile = new String(".\\src\\work7\\Hw3CopyIn.txt");
+		String outputFile = new String(".\\src\\work7\\Hw3CopyOut.txt");
 
 		copyFile(inputFile, outputFile);
 

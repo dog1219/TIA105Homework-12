@@ -8,7 +8,7 @@ import java.io.*;
 public class Hw1SampleRead {
 
 	public static void main(String[] args) {
-
+				
 		try {
 
 			File sampleFile = new File(".\\src\\work7\\Sample.txt");
@@ -18,6 +18,11 @@ public class Hw1SampleRead {
 			int i;
 			int samplesum = 0, sampleln = 0;
 			while ((i = sampleReader.read()) != -1) {
+
+				// 第一行不會有\n
+				if (sampleln == 0) {
+					sampleln += 1;
+				}
 
 				samplesum += 1;
 
@@ -29,16 +34,9 @@ public class Hw1SampleRead {
 
 			}
 
-			//第二行其實有兩行，但是只經過一個\n
-			if (sampleln >= 1) {
-
-				sampleln += 1;
-
-			}
-			
 			System.out.print("Sample.txt檔案共有" + sampleFile.length() + "個位元組," + samplesum + "個字元," + sampleln + "列資料");
 			sampleReader.close();
-			
+
 		} catch (IOException e) {
 
 			e.printStackTrace();
