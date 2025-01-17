@@ -9,9 +9,11 @@ public class Hw2TenRandom {
 
 	public static void main(String[] args) {
 
+		PrintWriter pw = null;
+
 		try {
 
-			PrintWriter pw = new PrintWriter(new FileWriter(".\\src\\work7\\Data.txt", true));
+			pw = new PrintWriter(new FileWriter(".\\src\\work7\\Data.txt", true));
 
 			for (int i = 1; i <= 10; i++) {
 
@@ -22,12 +24,19 @@ public class Hw2TenRandom {
 				}
 			}
 
-			pw.close();
 			System.out.print("已生成10個亂數");
 
 		} catch (IOException e) {
 
 			e.printStackTrace();
+
+		} finally {
+
+			if (pw != null) {
+
+				pw.close();
+
+			}
 
 		}
 

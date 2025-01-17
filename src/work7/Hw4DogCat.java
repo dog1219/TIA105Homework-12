@@ -7,16 +7,52 @@ import java.io.*;
 
 public class Hw4DogCat {
 
-	Cat c1 = new Cat("bigcat");
-	Dog d1 = new Dog("bigdog");
-	
-	OutputStream outwr = new OutputStream("C:\\data\\Object.ser");
+	public static void main(String[] args) {
 
-	
-////	描述: 检查文件或目录是否存在
-//	if(!output.exists()) {
-//		output.createNewFile();
-//	}
-//	
-	
+		Cat c1 = new Cat("bigcat");
+		Dog d1 = new Dog("bigdog");
+		
+		String outplace = "C:\\data\\";	
+		File outfile = new File("C:\\data\\Object.ser");
+		
+		OutputStream outstream = null;
+		ObjectOutputStream objwrt = null;
+		
+		
+		try {
+
+			//描述: 检查文件或目录是否存在
+			if(! outfile.exists()) {
+				
+				new File(outplace).mkdirs();
+				outfile.createNewFile();
+				
+			}
+			
+			outstream = new FileOutputStream(outfile);
+			objwrt = new ObjectOutputStream(outstream);
+			objwrt.writeObject(c1);
+			objwrt.writeObject(d1);
+
+		} catch (FileNotFoundException e) {
+
+			e.printStackTrace();
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				outstream.close();
+				objwrt.close();
+			} catch (IOException e) {
+				// TODO 自動產生的 catch 區塊
+				e.printStackTrace();
+			}
+			
+		}
+
+	}
+
 }

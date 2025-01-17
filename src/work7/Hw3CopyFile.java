@@ -18,10 +18,13 @@ public class Hw3CopyFile {
 
 	static void copyFile(String inputFile, String outputFile) {
 
+		FileReader in = null;
+		FileWriter out = null;
+		
 		try {
 
-			FileReader in = new FileReader(inputFile);
-			FileWriter out = new FileWriter(outputFile);
+			in = new FileReader(inputFile);
+			out = new FileWriter(outputFile);
 			
 			int i;
 			while ((i = in.read()) != -1) {
@@ -30,13 +33,18 @@ public class Hw3CopyFile {
 
 			}
 
-			in.close();
-			out.close();
-
 		} catch (IOException e) {
 
 			e.printStackTrace();
 
+		} finally {
+			try {
+				in.close();
+				out.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
 		}
 
 	}
