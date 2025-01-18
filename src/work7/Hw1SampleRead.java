@@ -10,38 +10,29 @@ public class Hw1SampleRead {
 	public static void main(String[] args) {
 
 		File sampleFile = new File(".\\src\\work7\\Sample.txt");
+		FileReader sampleReader = null;
+		BufferedReader bf = null;
+		try {
 
-		try (FileReader sampleReader = new FileReader(sampleFile)) {
+			sampleReader = new FileReader(sampleFile);
+			bf = new BufferedReader(sampleReader);
 
-			// 計算字元數跟行數
-			int i;
+			String i;
 			int samplesum = 0, sampleln = 0;
-			while ((i = sampleReader.read()) != -1) {
+			while ((i = bf.readLine()) != null) {
 
-				// 字元計算
-				samplesum += 1;
-
-				System.out.print((char) i);
-
-				// 行數計算
-				if ((char) i == '\n') {
-
-					sampleln += 1;
-
-				}
-
-			}
-
-			if (sampleln > 0) {
 				sampleln += 1;
+				samplesum += i.length();
+				System.out.print(i);
+
 			}
 
 			System.out.print("Sample.txt檔案共有" + sampleFile.length() + "個位元組," + samplesum + "個字元," + sampleln + "列資料");
 
-		} catch (IOException e) {
-
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 
 	}
