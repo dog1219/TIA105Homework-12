@@ -23,8 +23,12 @@ public class Hw1SampleRead {
 
 				sampleln += 1;
 				samplesum += i.length();
-				System.out.print(i);
 
+			}
+
+			// 第一行沒被計算到
+			if (sampleln > 0) {
+				sampleln += 1;
 			}
 
 			System.out.print("Sample.txt檔案共有" + sampleFile.length() + "個位元組," + samplesum + "個字元," + sampleln + "列資料");
