@@ -19,6 +19,7 @@ public class Hw1SampleRead {
 
 			String i;
 			int samplesum = 0, sampleln = 0;
+
 			while ((i = bf.readLine()) != null) {
 
 				sampleln += 1;
@@ -26,8 +27,8 @@ public class Hw1SampleRead {
 
 			}
 
-			// 第一行沒被計算到，第一行\n 有兩行
-			if (sampleln > 0) {
+			// 第一行沒被計算到，第一行\n 有兩行，只要有字就是有第一行
+			if (samplesum != 0) {
 				sampleln += 1;
 			}
 
