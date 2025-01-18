@@ -18,19 +18,22 @@ public class Hw1SampleRead {
 			int samplesum = 0, sampleln = 0;
 			while ((i = sampleReader.read()) != -1) {
 
-				// 第一行不會有\n
-				if (sampleln == 0) {
-					sampleln += 1;
-				}
-
+				// 字元計算
 				samplesum += 1;
 
+				System.out.print((char) i);
+
+				// 行數計算
 				if ((char) i == '\n') {
 
 					sampleln += 1;
 
 				}
 
+			}
+
+			if (sampleln > 0) {
+				sampleln += 1;
 			}
 
 			System.out.print("Sample.txt檔案共有" + sampleFile.length() + "個位元組," + samplesum + "個字元," + sampleln + "列資料");

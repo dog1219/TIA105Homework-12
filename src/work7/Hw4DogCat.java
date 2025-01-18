@@ -47,7 +47,6 @@ public class Hw4DogCat {
 				outstream.close();
 				objwrt.close();
 			} catch (IOException e) {
-				// TODO 自動產生的 catch 區塊
 				e.printStackTrace();
 			}
 			

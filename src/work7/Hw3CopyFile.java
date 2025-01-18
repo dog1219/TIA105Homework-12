@@ -39,10 +39,14 @@ public class Hw3CopyFile {
 
 		} finally {
 			try {
-				in.close();
-				out.close();
+				
+				if(in != null)in.close();
+				if(out != null)out.close();
+				
 			} catch (IOException e) {
+				
 				e.printStackTrace();
+				
 			}
 			
 		}
