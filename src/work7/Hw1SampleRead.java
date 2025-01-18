@@ -26,7 +26,7 @@ public class Hw1SampleRead {
 
 			}
 
-			// 第一行沒被計算到
+			// 第一行沒被計算到，第一行\n 有兩行
 			if (sampleln > 0) {
 				sampleln += 1;
 			}
