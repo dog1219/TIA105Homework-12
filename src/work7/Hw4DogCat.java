@@ -21,7 +21,6 @@ public class Hw4DogCat {
 		
 		try {
 
-			//描述: 检查文件或目录是否存在
 			if(! outfile.exists()) {
 				
 				new File(outplace).mkdirs();
@@ -43,6 +42,7 @@ public class Hw4DogCat {
 			e.printStackTrace();
 			
 		} finally {
+			
 			try {
 				outstream.close();
 				objwrt.close();
