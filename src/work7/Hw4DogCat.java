@@ -15,8 +15,8 @@ public class Hw4DogCat {
 		String outplace = "C:\\data\\";	
 		File outfile = new File("C:\\data\\Object.ser");
 		
-		OutputStream outstream = null;
-		ObjectOutputStream objwrt = null;
+        FileWriter fileWriter = null;
+        BufferedWriter bufferedWriter = null;
 		
 		
 		try {
@@ -28,10 +28,8 @@ public class Hw4DogCat {
 				
 			}
 			
-			outstream = new FileOutputStream(outfile);
-			objwrt = new ObjectOutputStream(outstream);
-			objwrt.writeObject(c1);
-			objwrt.writeObject(d1);
+			fileWriter = new FileOutputStream(outfile);
+
 
 		} catch (FileNotFoundException e) {
 
@@ -45,7 +43,6 @@ public class Hw4DogCat {
 			
 			try {
 				outstream.close();
-				objwrt.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
