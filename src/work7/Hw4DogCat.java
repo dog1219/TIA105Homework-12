@@ -19,13 +19,9 @@ public class Hw4DogCat {
 		ObjectOutputStream objfile = null;
 
 		try {
-			
-			//檢查有沒有這個目錄
-			if (!outfile.exists()) {
 
-				new File(outplace).mkdirs();
-
-			}
+			// 檢查有沒有這個目錄
+			if (!outfile.exists()) new File(outplace).mkdirs();
 
 			outputfile = new FileOutputStream(outfile);
 			objfile = new ObjectOutputStream(outputfile);
@@ -41,33 +37,16 @@ public class Hw4DogCat {
 			e.printStackTrace();
 
 		} finally {
-			
-			if (objfile != null) {
-				
-				try {
-					
-					objfile.close();
-					
-				} catch (IOException e) {
-					
-					e.printStackTrace();
-					
-				}
-				
-			}
-			
-			if (outputfile != null) {
-				
-				try {
-					
-					outputfile.close();
-					
-				} catch (IOException e) {
-					
-					e.printStackTrace();
-					
-				}
-				
+
+			try {
+
+				if (objfile != null)objfile.close();
+				if (outputfile != null)outputfile.close();
+
+			} catch (IOException e) {
+
+				e.printStackTrace();
+
 			}
 
 		}

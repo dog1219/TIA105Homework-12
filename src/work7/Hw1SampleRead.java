@@ -38,6 +38,19 @@ public class Hw1SampleRead {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			
+			try {
+				
+				if(sampleReader!= null)sampleReader.close();
+				if(bf!= null) bf.close();
+				
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+				
+			}
+			
 		}
 
 	}

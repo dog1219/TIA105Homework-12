@@ -32,11 +32,7 @@ public class Hw2TenRandom {
 
 		} finally {
 
-			if (pw != null) {
-
-				pw.close();
-
-			}
+			if (pw != null)pw.close();
 
 		}
 
