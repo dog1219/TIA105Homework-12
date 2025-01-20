@@ -2,6 +2,8 @@ package work7;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 
 //請寫一支程式,利用老師提供的Dog與Cat類別分別產生兩個物件,寫到C:\data\Object.ser裡。注
@@ -13,32 +15,37 @@ import java.io.ObjectInputStream;
 public class Hw5DogCatspeak {
 
 	public static void main(String[] args) {
-		
+
 		File inFile = new File("C:\\data\\Object.ser");
 		FileInputStream inputfile = null;
 		ObjectInputStream objfile = null;
 
-		try{
-			inputfile = new FileInputStream(inFile);
-			objfile  = new ObjectInputStream(inputfile);
-			objfile.readObject();		
-			d1.speak();c1.speak();
-			
-		}catch{
-			
-			
+		try {
 
-		}finally{
+			objfile = new ObjectInputStream(new FileInputStream(inFile));
+			Animal d1 = (Animal) objfile.readObject();
+			Animal c1= (Animal) objfile.readObject();
+			
+			c1.speak();
+			d1.speak();
 
-			if (inputfile != null)inputfile.close();
-			if (objfile != null)objfile.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+
+			try {
+				if (inputfile != null)inputfile.close();
+				if (objfile != null)objfile.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 
 		}
 
-		
-		
 	}
-
-
 
 }

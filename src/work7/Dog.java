@@ -2,7 +2,7 @@ package work7;
 
 import java.io.Serializable;
 
-public class Dog implements Serializable{
+public class Dog extends Animal implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	

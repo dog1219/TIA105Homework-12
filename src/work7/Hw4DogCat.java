@@ -9,8 +9,8 @@ public class Hw4DogCat {
 
 	public static void main(String[] args) {
 
-		Cat c1 = new Cat("bigcat");
-		Dog d1 = new Dog("bigdog");
+		Animal c1 = new Cat("bigcat");
+		Animal d1 = new Dog("bigdog");
 
 		String outplace = "C:\\data\\";
 		File outfile = new File("C:\\data\\Object.ser");
@@ -53,4 +53,24 @@ public class Hw4DogCat {
 
 	}
 
+}
+
+
+class Animal implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
+	private String name;
+	
+	public Animal() {
+		super();
+	}
+
+	public Animal(String name) {
+		this.name = name;
+	}
+	
+	public void speak() {
+		System.out.println("This is Cat " + name + " speaking!");
+	}
 }
