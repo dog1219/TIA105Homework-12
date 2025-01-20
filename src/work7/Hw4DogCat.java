@@ -71,6 +71,6 @@ class Animal implements Serializable{
 	}
 	
 	public void speak() {
-		System.out.println("This is Cat " + name + " speaking!");
+		
 	}
 }
