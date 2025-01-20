@@ -1,6 +1,11 @@
 package work7;
 
-public class Dog {
+import java.io.Serializable;
+
+public class Dog implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
 	private String name;
 	
 	public Dog(String name) {

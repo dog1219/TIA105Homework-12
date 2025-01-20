@@ -11,25 +11,26 @@ public class Hw4DogCat {
 
 		Cat c1 = new Cat("bigcat");
 		Dog d1 = new Dog("bigdog");
-		
-		String outplace = "C:\\data\\";	
+
+		String outplace = "C:\\data\\";
 		File outfile = new File("C:\\data\\Object.ser");
-		
-        FileWriter fileWriter = null;
-        BufferedWriter bufferedWriter = null;
-		
-		
+
+		FileOutputStream outputfile = null;
+		ObjectOutputStream objfile = null;
+
 		try {
-
-			if(! outfile.exists()) {
-				
-				new File(outplace).mkdirs();
-				outfile.createNewFile();
-				
-			}
 			
-			fileWriter = new FileOutputStream(outfile);
+			//檢查有沒有這個目錄
+			if (!outfile.exists()) {
 
+				new File(outplace).mkdirs();
+
+			}
+
+			outputfile = new FileOutputStream(outfile);
+			objfile = new ObjectOutputStream(outputfile);
+			objfile.writeObject(c1);
+			objfile.writeObject(d1);
 
 		} catch (FileNotFoundException e) {
 
@@ -38,15 +39,37 @@ public class Hw4DogCat {
 		} catch (IOException e) {
 
 			e.printStackTrace();
-			
+
 		} finally {
 			
-			try {
-				outstream.close();
-			} catch (IOException e) {
-				e.printStackTrace();
+			if (objfile != null) {
+				
+				try {
+					
+					objfile.close();
+					
+				} catch (IOException e) {
+					
+					e.printStackTrace();
+					
+				}
+				
 			}
 			
+			if (outputfile != null) {
+				
+				try {
+					
+					outputfile.close();
+					
+				} catch (IOException e) {
+					
+					e.printStackTrace();
+					
+				}
+				
+			}
+
 		}
 
 	}
