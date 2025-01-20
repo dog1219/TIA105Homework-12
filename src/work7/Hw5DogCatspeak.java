@@ -25,7 +25,6 @@ public class Hw5DogCatspeak {
 			objfile = new ObjectInputStream(new FileInputStream(inFile));
 			Animal d1 = (Animal) objfile.readObject();
 			Animal c1= (Animal) objfile.readObject();
-			
 			c1.speak();
 			d1.speak();
 
