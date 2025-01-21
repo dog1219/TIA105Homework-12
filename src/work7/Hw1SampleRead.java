@@ -12,6 +12,7 @@ public class Hw1SampleRead {
 		File sampleFile = new File(".\\src\\work7\\Sample.txt");
 		FileReader sampleReader = null;
 		BufferedReader bf = null;
+		
 		try {
 
 			sampleReader = new FileReader(sampleFile);

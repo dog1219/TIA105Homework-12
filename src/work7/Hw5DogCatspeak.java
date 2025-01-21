@@ -23,10 +23,13 @@ public class Hw5DogCatspeak {
 		try {
 
 			objfile = new ObjectInputStream(new FileInputStream(inFile));
-			Animal d1 = (Animal) objfile.readObject();
-			Animal c1= (Animal) objfile.readObject();
-			c1.speak();
+
+			//反序列順序要一樣
+			Animal c1= (Cat) objfile.readObject();
+			Animal d1 = (Dog) objfile.readObject();
+			
 			d1.speak();
+			c1.speak();
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

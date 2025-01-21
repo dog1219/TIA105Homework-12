@@ -12,7 +12,6 @@ public class Hw4DogCat {
 		Animal c1 = new Cat("bigcat");
 		Animal d1 = new Dog("bigdog");
 
-		String outplace = "C:\\data\\";
 		File outfile = new File("C:\\data\\Object.ser");
 
 		FileOutputStream outputfile = null;
@@ -21,21 +20,16 @@ public class Hw4DogCat {
 		try {
 
 			// 檢查有沒有這個目錄
-			if (!outfile.exists()) new File(outplace).mkdirs();
+			if (!outfile.exists()) new File("C:\\data\\").mkdirs();
 
-			outputfile = new FileOutputStream(outfile);
-			objfile = new ObjectOutputStream(outputfile);
+			objfile = new ObjectOutputStream(new FileOutputStream(outfile));
 			objfile.writeObject(c1);
 			objfile.writeObject(d1);
 
 		} catch (FileNotFoundException e) {
-
 			e.printStackTrace();
-
 		} catch (IOException e) {
-
 			e.printStackTrace();
-
 		} finally {
 
 			try {
@@ -44,9 +38,7 @@ public class Hw4DogCat {
 				if (outputfile != null)outputfile.close();
 
 			} catch (IOException e) {
-
 				e.printStackTrace();
-
 			}
 
 		}
@@ -73,4 +65,9 @@ class Animal implements Serializable{
 	public void speak() {
 		
 	}
+
+	public String getName() {
+		return name;
+	}
+	
 }
