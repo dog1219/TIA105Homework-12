@@ -1,5 +1,6 @@
 package work7;
 
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -17,19 +18,24 @@ public class Hw5DogCatspeak {
 	public static void main(String[] args) {
 
 		File inFile = new File("C:\\data\\Object.ser");
-		FileInputStream inputfile = null;
 		ObjectInputStream objfile = null;
 
 		try {
 
 			objfile = new ObjectInputStream(new FileInputStream(inFile));
 
-			//反序列順序要一樣
-			Animal c1= (Cat) objfile.readObject();
-			Animal d1 = (Dog) objfile.readObject();
-			
-			d1.speak();
-			c1.speak();
+			while (true) {
+
+				try {
+					
+					((Animal) objfile.readObject()).speak();
+					
+					//如果盡頭就跳出
+				} catch (EOFException e) {
+					break;
+				}
+
+			}
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -40,8 +46,8 @@ public class Hw5DogCatspeak {
 		} finally {
 
 			try {
-				if (inputfile != null)inputfile.close();
-				if (objfile != null)objfile.close();
+				if (objfile != null)
+					objfile.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
