@@ -14,6 +14,7 @@ public class Hw1Collection {
 	
 	public static void main(String[] args) {
 		
+//		Collection<Number> = new ArrayList<>();
 		Collection c1 = new Collection(new Integer(100));
 		Collection c2 = new Collection(new Double(3.14));
 		Collection c3 = new Collection(new Long(21L));
@@ -29,16 +30,16 @@ public class Hw1Collection {
 			
 		}
 		
-	      while (iterator.hasNext()) {
+		while (iterator.hasNext()) {
 	      	
 	          String fruit = iterator.next(); 
 	          System.out.println(fruit);
 	          
-	      }
+		}
       
-	      foreach(){
+		foreach(){
 	      	
-	      }
+		}
 		
 	}
 	
