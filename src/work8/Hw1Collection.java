@@ -10,23 +10,7 @@ import java.math.BigInteger;
 //• 移除不是java.lang.Number相關的物件
 //• 再次印出這個集合物件的所有元素,觀察是否已將非Number相關的物件移除成功
 
-public class Collection {
-
-	private Object obj;
-
-	public Collection() {
-		super();
-	}
-
-	public Collection(Object obj) {
-		super();
-		this.obj = obj;
-	}
-
-	
-}
-
-class Test{
+public class Hw1Collection {
 	
 	public static void main(String[] args) {
 		
@@ -45,7 +29,32 @@ class Test{
 			
 		}
 		
+	      while (iterator.hasNext()) {
+	      	
+	          String fruit = iterator.next(); 
+	          System.out.println(fruit);
+	          
+	      }
+      
+	      foreach(){
+	      	
+	      }
+		
 	}
 	
-	
+}
+
+class Collection {
+
+	private Object obj;
+
+	public Collection() {
+		super();
+	}
+
+	public Collection(Object obj) {
+		super();
+		this.obj = obj;
+	}
+
 }

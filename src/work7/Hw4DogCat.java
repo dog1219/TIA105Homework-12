@@ -11,6 +11,8 @@ public class Hw4DogCat {
 
 		Animal c1 = new Cat("bigcat");
 		Animal d1 = new Dog("bigdog");
+		Animal d2 = new Dog("smalldog");
+		Animal c2 = new Cat("smallcat");
 
 		File outfile = new File("C:\\data\\Object.ser");
 
@@ -23,8 +25,11 @@ public class Hw4DogCat {
 			if (!outfile.exists()) new File("C:\\data\\").mkdirs();
 
 			objfile = new ObjectOutputStream(new FileOutputStream(outfile));
+
 			objfile.writeObject(c1);
 			objfile.writeObject(d1);
+			objfile.writeObject(d2);
+			objfile.writeObject(c2);
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

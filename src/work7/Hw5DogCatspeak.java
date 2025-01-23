@@ -28,7 +28,8 @@ public class Hw5DogCatspeak {
 
 				try {
 					
-					((Animal) objfile.readObject()).speak();
+					Animal a = (Animal) objfile.readObject();
+					a.speak();		
 					
 					//如果盡頭就跳出
 				} catch (EOFException e) {
