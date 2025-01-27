@@ -44,39 +44,35 @@ public class Hw2Train {
 
 		// • 請寫一隻程式,能印出不重複的Train物件(以上三題請根據使用的集合,練習各種取值寫法,如迭代器、for迴圈或foreach等)
 		Collection<Train> trainSet = new HashSet<>(trainList);
-		Iterator<Train> it1 = trainSet.iterator();
-		while (it1.hasNext()) {
-			System.out.println(it1.next().getNumber());
+		Iterator<Train> it = trainSet.iterator();
+		while (it.hasNext()) {
+			System.out.println(it.next().getNumber());
 		}
 		System.out.println("========================");
-		
+
 		// • 請寫一隻程式,讓Train物件印出時,能以班次編號由大到小印出(以上三題請根據使用的集合,練習各種取值寫法,如迭代器、for迴圈或foreach等)
 		Collections.sort((List) trainList);
 		Object[] a = trainList.toArray();
-		for (int i = 0; i < trainList.size(); i++) {
-			System.out.println(((Train)a[i]).getNumber());
+		for (int i = trainList.size() - 1; i >= 0; i--) {
+			System.out.println(((Train) a[i]).getNumber());
 		}
 		System.out.println("========================");
-		
+
 		// • 承上,不僅能讓班次編號由大排到小印出,
 		// 還可以不重複印出Train物件(以上三題請根據使用的集合,練習各種取值寫法,如迭代器、for迴圈或foreach等)
-		Collection<Train> trainSet2 = new HashSet<>(trainList);
-		Collection<Train> trainList2 = new ArrayList<>(trainSet2);
-		Collections.sort((List)trainList2);
-		Iterator<Train> it2 = trainList2.iterator();
-		while (it2.hasNext()) {
-			System.out.println(it2.next().getNumber());
+		trainSet = new HashSet<>(trainList);
+		trainList = new ArrayList<>(trainSet);
+		Collections.sort((List) trainList);
+		for (int i = trainList.size()-1; i >= 0; i--) {
+//			System.out.println(((Train) a[i]).getNumber());
+			System.out.println((((ArrayList<Train>) trainList).get(i)).getNumber());
 		}
-		System.out.println("========================");
-		
-		
-		
-		
+
 	}
 
 }
 
-class Train implements Comparable<Train>{
+class Train implements Comparable<Train> {
 
 	private int number; // 班次
 	private String type; // 車種
@@ -84,8 +80,6 @@ class Train implements Comparable<Train>{
 	private String dest; // 目的地
 	private double price; // 票價
 
-
-	
 	public Train() {
 		super();
 	}
@@ -134,8 +128,9 @@ class Train implements Comparable<Train>{
 		return number;
 	}
 
-    @Override
-    public int compareTo(Train t) {
-        return Integer.compare(this.number, t.number);
-    }
+	@Override
+	public int compareTo(Train t) {
+		return Integer.compare(this.number, t.number);
+	}
+
 }
