@@ -28,11 +28,6 @@ public class Hw1SampleRead {
 
 			}
 
-			// 第一行沒被計算到，第一行\n 有兩行，只要有字就是有第一行
-			if (samplesum != 0) {
-				sampleln += 1;
-			}
-
 			System.out.print("Sample.txt檔案共有" + sampleFile.length() + "個位元組," + samplesum + "個字元," + sampleln + "列資料");
 
 		} catch (FileNotFoundException e) {
